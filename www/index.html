@@ -17,26 +17,55 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html ng-app>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
         <title>Hello World - Puppies</title>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+
+<style>
+.topImage {
+display: block;
+margin-left: auto;
+margin-right: auto;
+height:540px;
+width:540px;
+}
+</style>
     </head>
     <body>
-        <div class="app">
-            <h1>PhoneGap Puppies</h1>
-            <div id="deviceready">
-                <p class="status pending blink">Connecting to Device</p>
-                <p class="status complete blink hide">Device is Ready</p>
-            </div>
-        </div>
+        <div class="app" ng-controller="Puppy">
+<div>
+<img class="topImage" src={{image_url}}>
+</div>
+<div>Name: {{name}}</div>
+<div>Gender: {{gender}}</div>
+<div>Breed: {{breed}}</div>
+<div>Color: {{color}}</div>
+<div>Age: {{age}}</div>
+<div>{{about}}</div>
+</div>
+
+
         <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+       <!-- <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
-        </script>
+        </script> -->
+
+<script type="text/javascript">
+function Puppy($scope) {
+  $scope.name = "Pony";
+  $scope.gender = "Male";
+  $scope.breed = "Terrier";
+  $scope.color = "Tan";
+  $scope.age = "1y1m";
+  $scope.image_url = "http://www.sfspca.org/sites/default/files/photos/fc038152-8968-4a34-bc13-d858ac6e3286_2.jpg";
+  $scope.about = "Pony was picked up stray in San Francisco. Pony is small but needs more than lap time. He is an aenergetic dog that needs an active adopter that can give him plentiful exercise, play time at the park with other dogs and some training. Pony weighs about 8 pounds.";
+}
+</script>
     </body>
 </html>
